@@ -1,8 +1,11 @@
 # Limpet
 
-This project is under current development, and is intended as a database connection manager specifically for [mechasqueak3](https://github.com/FuelRats/pipsqueak3).
+This project is under current development, and is intended as an async database connection manager specifically for [mechasqueak3](https://github.com/FuelRats/pipsqueak3).
 
 However, it does have applications as a standalone, simple database query tool with a simple connection pool.
+
+> Limpet is an asynchronous library, and its coroutine **must be awaited**!
+
 
 This project is currently in *pre-release*.  Use at your own risk!
 
@@ -31,7 +34,7 @@ Create the DatabaseManager:
 
 *and* query the database using:
 
-``DatabaseManager.query(query, values)``
+``await DatabaseManager.query(query, values)``
 
 * *query* expects a psycopg2.sql.SQL composed object ([details](http://initd.org/psycopg/docs/sql.html))
 * *values* is a tuple containing (in order) the values used in the query object.
