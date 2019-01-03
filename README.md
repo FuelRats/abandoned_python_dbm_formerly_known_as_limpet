@@ -8,7 +8,7 @@ This project is currently in *pre-release*.  Use at your own risk!
 
 ### Requirements
 * Python 3.7+
-* psycopg2 (available via ``pipenv install psycopg`` or by utilizing our pipfile)
+* psycopg2 (available via ``pipenv install psycopg``
 * A postgreSQL database (9.5+)
 
 
