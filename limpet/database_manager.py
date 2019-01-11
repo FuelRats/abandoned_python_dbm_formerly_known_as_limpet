@@ -8,6 +8,7 @@ Licensed under the BSD 3-Clause License.
 See LICENSE.md
 """
 from psycopg2 import sql, pool
+from typing import Union, Dict, List, Tuple
 import psycopg2
 
 
@@ -52,7 +53,7 @@ class DatabaseManager(object):
         except psycopg2.DatabaseError as error:
             raise error
 
-        async def query(self, sql_query: sql.SQL, values: tuple) -> list:
+        async def query(self, sql_query: sql.SQL, values: Union[Dict, Tuple]) -> List:
             """
              Send a query to the connected database.  Pulls a connection from the pool
              and creates a cursor, executing the composed query with the values.
@@ -71,8 +72,8 @@ class DatabaseManager(object):
                 raise TypeError("Expected composed SQL object for query.")
 
             # Verify value is tuple
-            if not isinstance(values, tuple):
-                raise TypeError("Expected tuples for query values.")
+            if not isinstance(values, (tuple, dict)):
+                raise TypeError("Expected tuple or dict for query values.")
 
             with self._dbpool.getconn() as connection:
                 connection.autocommit = True

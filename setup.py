@@ -8,7 +8,7 @@ setup(
     name='Limpet',
     author='The Fuel Rats Mischief',
     url='https://github.com/FuelRats/limpet',
-    version='0.1dev1',
+    version='0.1dev2',
     packages=['limpet', ],
     license='BSD-3-Clause',
     long_description=long_description,
